@@ -55,3 +55,7 @@ this is the second pillar of future software development in my view — writing 
 ## pretty readme
 
 llms do write nicer presentations with more detail, so if you want to read this "refined", check the [pretty readme](pretty_readme.md)
+
+## note
+
+of course none of the steps here is easy or really manageable by one person but i think steps are feasible and necessary longterm for llm-generated code in serious enough systems
