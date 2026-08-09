@@ -58,4 +58,4 @@ llms do write nicer presentations with more detail, so if you want to read this 
 
 ## note
 
-of course none of the steps here is easy or really manageable by one person but i think steps are feasible and necessary longterm for llm-generated code in serious enough systems
+of course none of the steps here are easy or really manageable by one person but i think steps are feasible and necessary longterm for llm-generated code in serious enough systems
