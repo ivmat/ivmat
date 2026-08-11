@@ -40,7 +40,7 @@ reduce assumptions, never eliminate them — and know what's left
 
 ## obvious: hard part is moved to SPEC
 
-llms make it easy to check code against the spec, but the hard part then is: what should the spec say. i think we humans still have a say there, even though llms write better specs. once llms cover model checking, our focus should move to specs.
+llms make it easy to check code against the spec, but the hard part then is: what should the spec say. this still stays critically people endeavour due to intent agreement. (even though llms may draft and do the "mechanical" part). once llms cover model checking, our focus should move to specs.
 this is the second pillar of future software development in my view — writing specs that correspond to intent (the first being quick and easy model checking).
 (no ongoing work on this at the moment)
 
@@ -58,4 +58,4 @@ llms do write nicer presentations with more detail, so if you want to read this 
 
 ## note
 
-of course none of the steps here are easy or really manageable by one person but i think steps are feasible and necessary longterm for llm-generated code in serious enough systems
+of course none of the steps here are easy or really manageable by one person but i think steps are feasible and necessary longterm for llm-generated code in serious enough systems. autonymous artefact-producing-systems still need to be easily auditable, person-overridable and safe -- that's the point of "shift left" move: reduce problem-source surfaces to specs and mechanize most elements so no hidden non-wanted intend leaks into produced artefacts (in general, we talk about code, i.e commit as primiary example of a produced artefact)
