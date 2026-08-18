@@ -1,0 +1,108 @@
+#!/bin/sh
+# installed-by: gates/install_hooks.sh
+#
+# pre-push hook: runs gates/check.sh against every sha being pushed, in a
+# throwaway detached git worktree (never the working tree), before letting
+# the push through.
+#
+# git invokes this with two args (remote name, remote url) and feeds lines of
+#   <local ref> <local sha> <remote ref> <remote sha>
+# on stdin, one per ref being pushed.
+set -u
+
+repo_root="$(git rev-parse --show-toplevel 2>/dev/null)"
+if [ -z "$repo_root" ]; then
+    echo "pre-push: not inside a git repository" >&2
+    exit 1
+fi
+
+zero_sha="0000000000000000000000000000000000000000"
+
+lines="$(cat)"
+
+if [ -z "$lines" ]; then
+    if [ "$#" -ge 2 ]; then
+        # Normal git invocation, nothing to push: no-op.
+        exit 0
+    fi
+    # Direct invocation with no stdin (e.g. manual testing): fail closed by
+    # gating HEAD instead of silently passing.
+    head_sha="$(git rev-parse HEAD 2>/dev/null)"
+    if [ -z "$head_sha" ]; then
+        echo "pre-push: cannot resolve HEAD" >&2
+        exit 1
+    fi
+    lines="refs/heads/HEAD $head_sha refs/heads/HEAD $head_sha"
+fi
+
+# Collect the distinct, non-deleted local shas being pushed.
+shas=""
+while read -r local_ref local_sha remote_ref remote_sha; do
+    [ -z "${local_sha:-}" ] && continue
+    if [ "$local_sha" = "$zero_sha" ]; then
+        continue  # deleted ref: skip this line only
+    fi
+    case " $shas " in
+        *" $local_sha "*) ;;  # already queued
+        *) shas="$shas $local_sha" ;;
+    esac
+done <<EOF
+$lines
+EOF
+
+if [ -z "$shas" ]; then
+    # Every ref line was a deletion.
+    exit 0
+fi
+
+worktrees=""
+cleanup() {
+    for wt in $worktrees; do
+        git worktree remove --force "$wt" >/dev/null 2>&1
+        rm -rf "$wt" 2>/dev/null
+    done
+}
+trap cleanup EXIT INT TERM
+
+status=0
+for sha in $shas; do
+    wt_dir="$(mktemp -d "${TMPDIR:-/tmp}/pre-push-check.XXXXXX")"
+    if [ -z "$wt_dir" ]; then
+        echo "pre-push: mktemp failed" >&2
+        status=1
+        break
+    fi
+    rmdir "$wt_dir"  # git worktree add wants to create this itself
+
+    if ! git worktree add --detach --quiet "$wt_dir" "$sha" >/dev/null 2>&1; then
+        echo "pre-push: could not create a worktree for $sha, refusing push" >&2
+        status=1
+        continue
+    fi
+    worktrees="$worktrees $wt_dir"
+
+    if [ ! -f "$wt_dir/gates/check.sh" ]; then
+        echo "pre-push: gates/check.sh missing at $sha, refusing push" >&2
+        status=1
+        continue
+    fi
+
+    if ! sh "$wt_dir/gates/check.sh" "$wt_dir"; then
+        echo "pre-push: checks FAILED @ $sha" >&2
+        status=1
+        continue
+    fi
+
+    echo "checks: GREEN @ $sha"
+done
+
+hooks_dir="$(git rev-parse --git-path hooks 2>/dev/null)"
+chained="$hooks_dir/pre-push.pre-guard"
+if [ "$status" -eq 0 ] && [ -n "$hooks_dir" ] && [ -x "$chained" ]; then
+    "$chained" "$@" <<EOF
+$lines
+EOF
+    status=$?
+fi
+
+exit "$status"
