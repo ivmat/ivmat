@@ -1,5 +1,4 @@
-# ivo matijasevic
-
+# me
 - masters in math and CS
 - 10+ years in Erlang systems
 
