@@ -1,4 +1,4 @@
-> This is a refined presentation of my handwritten [README](README.md). The ideas and judgments are mine; the prose and most of the work it describes were produced with LLMs under the process stated below.
+> This is a refined presentation of my handwritten [README](README.md). The ideas and judgments are mine. LLMs produced the prose, but I read, review, and adapt it; this page is the formulation I currently accept and take responsibility for.
 
 # Ivo Matijašević
 
@@ -102,7 +102,7 @@ The hardest boundary is the specification. Machines can increasingly check wheth
 
 ## How the work is produced
 
-Almost nothing in the estate is handwritten. The plain [README](README.md) is my original note; LLM workers generated most code, proofs, documentation, and this page, with human direction and review.
+Almost nothing in the estate is handwritten. The plain [README](README.md) is my original note; LLM workers generated most code, proofs, documentation, and this page. I direct the work and read, review, and adapt its outward-facing results rather than publishing them unexamined.
 
 The contrast between the two READMEs is deliberate. I do not naturally write with formal precision. I think and communicate in a compressed way: examples may be approximate, premises remain unstated, terminology moves, and I often do not write every qualification that I have in mind. The handwritten page preserves that fact instead of editing me into a person I am not.
 
