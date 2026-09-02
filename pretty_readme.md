@@ -104,6 +104,12 @@ The hardest boundary is the specification. Machines can increasingly check wheth
 
 Almost nothing in the estate is handwritten. The plain [README](README.md) is my original note; LLM workers generated most code, proofs, documentation, and this page, with human direction and review.
 
+The contrast between the two READMEs is deliberate. I do not naturally write with formal precision. I think and communicate in a compressed way: examples may be approximate, premises remain unstated, terminology moves, and I often do not write every qualification that I have in mind. The handwritten page preserves that fact instead of editing me into a person I am not.
+
+LLMs are unusually good at turning that compressed intent into candidate definitions, claims, specifications, examples, and work plans. In that sense, I use them as something like **Grammarly for ideas**, not only for sentences. This is not mind-reading. They have the surrounding repositories, decisions, corrections, failed attempts, and repeated patterns from which to reconstruct what I probably mean. When several precise interpretations fit, I still have to choose.
+
+The reconstruction works especially well here because the destination is rigorous. A vague idea must eventually become an executable property, a formal statement, a proof obligation, or an explicit assumption. Proof failures, counterexamples, negative controls, and review then push back on a bad interpretation. The models help me state the precision I am often too impatient to write; formal methods make that precision inspectable. Neither guarantees that the formal statement matches my intent—a perfectly verified misunderstanding is still a misunderstanding—but together they create a much tighter correction loop between thought and artifact.
+
 That is part of the experiment, but it is not evidence by itself. The operating rules are:
 
 - stochastic models propose; deterministic tools decide only what they are capable of deciding;
