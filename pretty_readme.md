@@ -10,25 +10,9 @@ I am exploring a long-term question:
 
 My working thesis is that LLMs change the economics of formal methods. They can help write specifications, proof harnesses, tests, and proofs at a scale that was previously impractical. That does not make software automatically correct. It may make it practical to ship important software with a much stronger account of why particular claims about it should be accepted.
 
-## This page is part of the experiment
+The public work below is also a practical experiment in LLM autonomy. LLM workers perform most of the artifact-production loop: they navigate the repositories, implement code, write specifications and proof harnesses, run tools, diagnose failures, revise the work, and maintain its evidence and documentation. Repository rules and persistent project context let that work continue across sessions instead of reducing it to isolated prompts.
 
-One of my bottlenecks is translating an idea for other people. I think and communicate in a compressed way: examples may be approximate, premises remain unstated, and terminology moves. Once I understand an idea, I tend to forget which introduction a new reader still needs. I also have little patience for repeatedly packaging an idea in academic or marketing form. Before LLMs, many things I thought worth exploring would simply have stayed in my head.
-
-LLMs materially change that. I can give them rough language, fragments, corrections, and an accumulated repository history; they can reconstruct missing context, propose precise interpretations, explain the idea to a new reader, and help turn it into specifications, papers, proofs, software, and maintained public repositories.
-
-The decisive leverage is not a perfect first answer. For me, steering, rejecting, and correcting candidate output is orders of magnitude easier than producing a precise explanation or formalization from a blank page. Recognition and direction cost me far less than complete externalization. I can therefore spend more of my attention choosing the intended meaning, challenging the result, and deciding what I am willing to claim. In that sense, I use LLMs as extensions of my working capacity—and as something like **Grammarly for idea expression**, not merely grammar for sentences.
-
-The amount of work I can now externalize is itself evidence of LLM leverage. It is not evidence that the resulting claims are correct. That remains the burden of specifications, proofs, tests, negative controls, review, and explicit uncertainty.
-
-This is not mind-reading, and fluency is not evidence that a model understood me correctly. Several precise interpretations may fit the same rough thought. The collaboration works especially well here because the destination is rigorous: an interpretation must eventually become a definition, executable property, formal statement, proof obligation, test, or explicit assumption. Proof failures, counterexamples, negative controls, and review can then push back. A perfectly verified misunderstanding is still a misunderstanding, so I make the final choice and remain responsible for it.
-
-| Participant | Role |
-|---|---|
-| **Me** | Intent, direction, judgment, correction, acceptance, and responsibility |
-| **LLMs** | Context reconstruction, candidate formalization, critique, explanation, and artifact production |
-| **Formal and executable gates** | Bounded, reproducible decisions about the claims they are actually capable of checking |
-
-The rough [README](README.md) and this synthesis are deliberately kept together. The first preserves how I actually expressed the idea at one point in its development. The second is not its polished duplicate: it uses the wider estate and continued dialogue to build the clearest current picture, including qualifications and connections that were not present in the original note. Together they show how much more of an idea becomes communicable and actionable through the human–LLM–verification loop.
+The objective is not autonomous generation for its own sake. It is bounded autonomy that produces **correct-enough artifacts**: artifacts that satisfy an explicit acceptance policy for named properties and expose the assumptions, bounds, trusted base, and gaps outside that policy. “Correct enough” is deliberately not “correct in every possible sense.” The agent proposes and revises; formal and executable gates decide only the claims they are capable of checking; people remain responsible for intent and whether the specification is the right one.
 
 ## The bet
 
@@ -122,7 +106,7 @@ The hardest boundary is the specification. Machines can increasingly check wheth
 
 ## How the work is produced
 
-Almost nothing in the estate is handwritten. The plain [README](README.md) is my original note; LLM workers generated most code, proofs, documentation, and this page. I direct the work and read, review, and adapt its outward-facing results rather than publishing them unexamined.
+Almost nothing in the estate is handwritten. The plain [README](README.md) is my original note; LLM workers generated most code, proofs, specifications, tests, documentation, and this page. The models are not used only as prose assistants: within bounded tasks they inspect the existing state, choose and execute implementation steps, respond to gate failures, and carry work through to an acceptance decision. I direct the overall work and read, review, and adapt its outward-facing claims rather than publishing them unexamined.
 
 That is part of the experiment, but it is not evidence by itself. The operating rules are:
 
