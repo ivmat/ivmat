@@ -1,4 +1,4 @@
-> This is a refined presentation of my handwritten [README](README.md). The ideas and judgments are mine. LLMs produced the prose, but I read, review, and adapt it; this page is the formulation I currently accept and take responsibility for.
+> This is a reviewed synthesis of my handwritten [README](README.md), the public repositories, and my later clarifications. It is not a sentence-by-sentence rewrite or a grammatically polished mirror of the rough README: it reorganizes, narrows, extends, and sometimes corrects that note as the work develops. The direction and accepted judgments are mine. LLMs produced the prose, but I read, review, and adapt it; this page is the formulation I currently accept and take responsibility for.
 
 # Ivo Matijašević
 
@@ -9,6 +9,24 @@ I am exploring a long-term question:
 > **If machines make software cheap to produce, can they also make its acceptance precise, reproducible, and honest?**
 
 My working thesis is that LLMs change the economics of formal methods. They can help write specifications, proof harnesses, tests, and proofs at a scale that was previously impractical. That does not make software automatically correct. It may make it practical to ship important software with a much stronger account of why particular claims about it should be accepted.
+
+## This page is part of the experiment
+
+One of my bottlenecks is translating an idea for other people. I think and communicate in a compressed way: examples may be approximate, premises remain unstated, and terminology moves. Once I understand an idea, I tend to forget which introduction a new reader still needs. I also have little patience for repeatedly packaging an idea in academic or marketing form. Before LLMs, many things I thought worth exploring would simply have stayed in my head.
+
+LLMs materially change that. I can give them rough language, fragments, corrections, and an accumulated repository history; they can reconstruct missing context, propose precise interpretations, explain the idea to a new reader, and help turn it into specifications, papers, proofs, software, and maintained public repositories. I can spend more of my attention choosing the intended meaning, challenging the result, and deciding what I am willing to claim. In that sense, I use LLMs as extensions of my working capacity—and as something like **Grammarly for ideas**, not only for sentences.
+
+The amount of work I can now externalize is itself evidence of LLM leverage. It is not evidence that the resulting claims are correct. That remains the burden of specifications, proofs, tests, negative controls, review, and explicit uncertainty.
+
+This is not mind-reading, and fluency is not evidence that a model understood me correctly. Several precise interpretations may fit the same rough thought. The collaboration works especially well here because the destination is rigorous: an interpretation must eventually become a definition, executable property, formal statement, proof obligation, test, or explicit assumption. Proof failures, counterexamples, negative controls, and review can then push back. A perfectly verified misunderstanding is still a misunderstanding, so I make the final choice and remain responsible for it.
+
+| Participant | Role |
+|---|---|
+| **Me** | Intent, direction, judgment, correction, acceptance, and responsibility |
+| **LLMs** | Context reconstruction, candidate formalization, critique, explanation, and artifact production |
+| **Formal and executable gates** | Bounded, reproducible decisions about the claims they are actually capable of checking |
+
+The rough [README](README.md) and this synthesis are deliberately kept together. The first preserves how I actually expressed the idea at one point in its development. The second is not its polished duplicate: it uses the wider estate and continued dialogue to build the clearest current picture, including qualifications and connections that were not present in the original note. Together they show how much more of an idea becomes communicable and actionable through the human–LLM–verification loop.
 
 ## The bet
 
@@ -82,7 +100,7 @@ I contribute to [Kani](https://github.com/model-checking/kani) and participate i
 
 ## The papers
 
-I did not find this exact synthesis and threshold formulation in the adjacent literature, so I wrote three public preprints. Their LaTeX sources, simulations, assumptions, and reproduction instructions are in [gated-computation-sim](https://github.com/ivmat/gated-computation-sim).
+My literature search did not find this exact synthesis and threshold formulation, so I wrote three public preprints. Their LaTeX sources, simulations, assumptions, and reproduction instructions are in [gated-computation-sim](https://github.com/ivmat/gated-computation-sim).
 
 1. [A fault-tolerance threshold for gated agentic computation](https://zenodo.org/records/20820968) develops a model and proposes a falsifiable agent experiment: same-family gate depth should initially help and then plateau where faults are shared; genuinely different or execution-grounded checks may move that plateau.
 2. [Generated gates inherit their generator's blind spots](https://zenodo.org/records/20837102) studies representation-relative blind sets and why more checking from the same representational family may leave a residual floor.
@@ -94,7 +112,7 @@ These are preprints, not peer-reviewed empirical results. The first paper's depl
 
 Every system rests on assumptions. The dangerous assumptions are the unnamed ones.
 
-> **A statement is either derived from other statements and explicit assumptions, or it is recorded as an assumption. There is no silent third category.**
+> **Within an acceptance case, a supporting claim should be derived, backed by named evidence under explicit assumptions, or clearly recorded as an assumption or assertion. Its status should not remain hidden.**
 
 Compilers, libraries, solvers, proof kernels, hardware, specifications, and human intent all create trust boundaries. The goal is not to claim that assumptions disappear. It is to reduce them where useful, expose the remainder, and bind every conclusion to the layer that actually supports it.
 
@@ -103,12 +121,6 @@ The hardest boundary is the specification. Machines can increasingly check wheth
 ## How the work is produced
 
 Almost nothing in the estate is handwritten. The plain [README](README.md) is my original note; LLM workers generated most code, proofs, documentation, and this page. I direct the work and read, review, and adapt its outward-facing results rather than publishing them unexamined.
-
-The contrast between the two READMEs is deliberate. I do not naturally write with formal precision. I think and communicate in a compressed way: examples may be approximate, premises remain unstated, terminology moves, and I often do not write every qualification that I have in mind. The handwritten page preserves that fact instead of editing me into a person I am not.
-
-LLMs are unusually good at turning that compressed intent into candidate definitions, claims, specifications, examples, and work plans. In that sense, I use them as something like **Grammarly for ideas**, not only for sentences. This is not mind-reading. They have the surrounding repositories, decisions, corrections, failed attempts, and repeated patterns from which to reconstruct what I probably mean. When several precise interpretations fit, I still have to choose.
-
-The reconstruction works especially well here because the destination is rigorous. A vague idea must eventually become an executable property, a formal statement, a proof obligation, or an explicit assumption. Proof failures, counterexamples, negative controls, and review then push back on a bad interpretation. The models help me state the precision I am often too impatient to write; formal methods make that precision inspectable. Neither guarantees that the formal statement matches my intent—a perfectly verified misunderstanding is still a misunderstanding—but together they create a much tighter correction loop between thought and artifact.
 
 That is part of the experiment, but it is not evidence by itself. The operating rules are:
 
