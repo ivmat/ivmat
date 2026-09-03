@@ -78,7 +78,7 @@ It is substantial evidence over named slices. It is **not** a proof of complete 
 
 A proof-producing pipeline pattern: an append-only work queue, pluggable kernel gate, receipts, structural audits, and a monotone ratchet, accompanied by a corpus of machine-checked Lean modules.
 
-This is the public core and an architectural demonstration. It is not the complete private engine or a finished autonomous software producer.
+This is a deliberately scoped architectural demonstration of the proposer-beneath-gates pattern. It makes the queue, gate, receipt, audit, and ratchet mechanics inspectable; it does not by itself establish production-scale autonomy.
 
 ### Upstream work — testing the approach outside my own repositories
 
