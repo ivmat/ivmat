@@ -80,13 +80,14 @@ reduce assumptions, never eliminate them — and know what's left
 - [accepted-work](https://github.com/ivmat/accepted-work) - record formats for accepted work, developed in public. still in development, so no open licence yet: public to read, all rights reserved. the licence opens once the formats are in use in my own systems. or if you want them, ping me and i will put them under MIT if you want to use them before they have been proven at least once.
 - contributions to acceptance-format are welcome. for accepted-work, comments are welcome for now. either way, mail me: ivomatijasevic@gmail.com
 
-- i looked for existing papers on the subject and 'did not find the same synthesis or threshold formulation', to be more precise, so i wrote six preprints:
+- i looked for existing papers on the subject and 'did not find the same synthesis or threshold formulation', to be more precise, so i wrote seven preprints:
     - [a fault-tolerance threshold for gated agentic computation](https://zenodo.org/records/20820968)
     - [generated gates inherit their generator's blind spots](https://zenodo.org/records/20837102)
     - [escape, cost, and correlation at the verification floor of gated agentic computation](https://zenodo.org/records/21456783)
     - [progressive semantic mechanization: compiling intellectual work into deterministic programs with typed semantic holes](https://zenodo.org/records/23119225)
     - [beyond constant fault rates: reliability bounds for gated computation and semantic mechanization](https://zenodo.org/records/23293740)
     - [risk-gated mechanization: severity, verifiability, and decisions invariant to the executor's error law](https://zenodo.org/records/23324667)
+    - [allocation and coordination under scarce resources: admissible routing, prices, review sets, and containment for gated work](https://zenodo.org/records/23449199)
     - consider this work as part of foundry pre-crystalized theory if you will...
 
 ## some thoughts on llms
